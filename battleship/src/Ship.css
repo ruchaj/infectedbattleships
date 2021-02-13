@@ -1,4 +1,20 @@
-.ship {
-    background-color: F96D44;
-    
+.small {
+    background-color: #44F98E;
+    width: 7vh ;
+    height: 10 ;
+    border-radius: 25px ;
+}
+
+.medium {
+    background-color: #F96D44;
+    width: 7vh ;
+    height: 20vh ;
+    border-radius: 25px ;
+}
+
+.large {
+    background-color: #4473F9;
+    width: 7vh ;
+    height: 40vh ;
+    border-radius: 25px ;
 }
