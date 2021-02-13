@@ -6,8 +6,7 @@ export const Cell = () => {
         // <div className="Cell">
         //     <p> Hello World </p>
         // </div>
-        <td className="Cell">Ships</td>
-    
+        <td className="Cell" />
     )
 }
 

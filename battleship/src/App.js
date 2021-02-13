@@ -6,6 +6,7 @@ function App() {
   return (
     <div className="App">
       <Board nrows={10} ncols={10} />
+      <Board nrows={10} ncols={10} />
     </div>
   );
 }

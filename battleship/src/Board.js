@@ -12,9 +12,10 @@ export const Board = (props) => {
     for (let i = 0; i < props.nrows; i++){
         let row = [];
         for (let k = 0; k < props.ncols; k++){
-            row.push(<Cell />);
+            let coord = `${i}-${k}`;
+            row.push(<Cell key={coord} />);
         }
-        board.push(<tr>{row}</tr>);
+        board.push(<tr key={i}>{row}</tr>);
     }
 
     return (
