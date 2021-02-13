@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+import React from 'react';
+import Ship from './Ship';
+
+const Board = (props) => {
+
+    return(
+        <div>
+        <Ship size="small"/>
+        <Ship size="medium"/>
+        <Ship size="large"/>
+
+        </div>
+    );
+
+
+=======
 import React, { useState } from 'react';
 import Cell from './Cell.js';
 import './Board.css';
@@ -27,6 +44,7 @@ export const Board = (props) => {
         
 
     )
+>>>>>>> 34a43190d93779fae4f52d76ec6b31228858db16
 }
 
 export default Board;
