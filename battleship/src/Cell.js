@@ -1,12 +1,17 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Cell.css'
 
-export const Cell = () => {
+export const Cell = (props) => {
+    const [isLit, setIsLit] = useState(false);
+
+    const handleClick = (evt) => {
+        setIsLit(!isLit);
+    }
+
+    let classes = "Cell" + (isLit ? " Cell-lit" : "");
+
     return (
-        // <div className="Cell">
-        //     <p> Hello World </p>
-        // </div>
-        <td className="Cell" />
+        <td className={classes} onClick={handleClick} />
     )
 }
 
