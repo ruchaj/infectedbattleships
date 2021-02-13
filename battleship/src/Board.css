@@ -2,6 +2,7 @@
     margin: 0 auto;
     border-radius: 10px;
     /* box-shadow: 10px 10px 0 red; */
+    background-color: blueviolet;
 }
 .Board-margins {
     margin: 20rem 5rem;
