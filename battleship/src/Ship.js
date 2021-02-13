@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Ship.css";
+<<<<<<< HEAD
 
 const Ship = (props) => {
 
@@ -13,6 +14,11 @@ const Ship = (props) => {
 
     );
 
+=======
+const Ship = (props) => {
+    <div classname = 'Ship'> </div>
+    
+>>>>>>> 34a43190d93779fae4f52d76ec6b31228858db16
 
 }
 
