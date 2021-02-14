@@ -28,6 +28,10 @@
   background: url(./img/icons8-tall_person.png);
   border: blue;
   border-radius: 1px;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 .square-user-bombed {
@@ -37,6 +41,10 @@
   background: url(./img/icons8-coronavirus.png);
   border: blue;
   border-radius: 1px;
+  -webkit-animation-duration: 5s;
+  animation-duration: 5s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
 }
 
 .square-comp-person {
@@ -66,18 +74,47 @@
 }
 
 .square:focus {
-  border: none;
   outline: none;
 }
 
-@-webkit-keyframes fadeIn {
+.square-comp-bombed:focus {
+  outline: none;
+}
+
+.square-comp-person:focus {
+  outline: none;
+}
+
+.square-user-bombed:focus {
+  outline: none;
+}
+
+.square-user-person:focus {
+  outline: none;
+}
+@-webkit-keyframes fadeOut {
   0% {opacity: 1;}
   100% {opacity: 0;}
 }
 
-@keyframes fadeIn {
+@keyframes fadeOut {
   0% {opacity: 1;}
   100% {opacity: 0;}
+}
+
+.fadeOut {
+  -webkit-animation-name: fadeOut;
+  animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
 }
 
 .fadeIn {

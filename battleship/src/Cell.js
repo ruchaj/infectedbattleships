@@ -10,11 +10,25 @@ class Cell extends React.Component {
         
         this.state = {
             didBombed: false,
-            hasShip: false,
+            hasShip: this.props.machinePos,
             user: props.user,
             canEdit: props.canEdit,                             // user is guessing
             isPlacing: props.isPlacing                          // user is placing humans
         };
+        //this.props.ref(this);
+    }
+
+    componentDidMount() {
+        //this.props.ref(this);
+        //console.log("this");
+    }
+
+    // componentWillUnmount() {
+    //     this.props.onRef(undefined);
+    // }
+
+    setShips = () => {
+        console.log("setShip");
     }
 
     onClick = () => {
@@ -40,9 +54,9 @@ class Cell extends React.Component {
     checkState = () => {
         if (this.state.user === 1) {                            // Left Board
             if(this.state.didBombed && this.state.hasShip) {    // Left Board and has a human and covid
-                return "square-comp-person";
+                return "square-comp-person fadeIn";
             } else if (this.state.didBombed){                   // Left Board and has a covid molecule
-                return "square-user-bombed";
+                return "square-user-bombed fadeIn";
             } else if (this.state.hasShip){                     // Left Board and has a human
                 return "square-user-person";
             } else {
@@ -50,9 +64,9 @@ class Cell extends React.Component {
             }
         } else if (this.state.user === 2) {                     // Right Board
             if (this.state.didBombed && this.state.hasShip) {   // Right Board and has human and covid
-                return "square-comp-person fadeIn";
+                return "square-comp-person fadeOut";
             } else if (this.state.didBombed) {                  // Right Board and has a covid molecule that fades
-                return "square-comp-bombed fadeIn";
+                return "square-comp-bombed fadeOut";
             } else {                                            // Right Board, nothing on this square
                 return "square";
             }
