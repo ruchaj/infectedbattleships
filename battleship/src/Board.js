@@ -8,7 +8,7 @@ import './Board.css';
 class Board extends React.Component {
     constructor(props){
        super(props); 
-       this.createBoard = this.createBoard.bind(this);
+       //this.createBoard = this.createBoard.bind(this);
        //this.checkSet = this.checkSet.bind(this);
 
        this.state = {
