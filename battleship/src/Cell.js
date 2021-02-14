@@ -20,7 +20,7 @@ class Cell extends React.Component {
     }
 
     componentDidMount() {
-        this.props.ref(this);
+        this.props.onRef(this);
         //console.log("this");
     }
 
@@ -40,6 +40,7 @@ class Cell extends React.Component {
                 this.setState({didBombed: true})                    
             } else {                                                // cell has a ship, sets bombed to true = has ship and bombed
                 this.setState({didBombed: true, hasShip: true});
+                this.props.flipAroundMe(this.props.key);
             }
             this.props.flip();                                      // flips the turns of the players
         }
@@ -53,7 +54,7 @@ class Cell extends React.Component {
     }
 
 
-    checkState = () => {
+    checkState(){
         if (this.state.user === 1) {                            // Left Board
             if(this.state.didBombed && this.state.hasShip) {    // Left Board and has a human and covid
                 return "square-comp-person fadeIn";

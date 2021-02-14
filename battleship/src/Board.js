@@ -8,14 +8,12 @@ import './Board.css';
 class Board extends React.Component {
     constructor(props){
        super(props); 
-       this.createBoard = this.createBoard.bind(this);
+       //this.createBoard = this.createBoard.bind(this);
        //this.checkSet = this.checkSet.bind(this);
-
 
        this.state = {
         pos: (this.props.machinePos !== undefined) ? Array.from(this.props.machinePos) : undefined,
         user: this.props.user,
-        table: table
         }
 
         this.arr = Array(this.props.nrows*this.props.ncols).fill(1);
@@ -82,34 +80,44 @@ class Board extends React.Component {
 
     // Check to see if a player has won
     winCondition = () => {
-        for (int i = 0; i < this.props.nrows){
-            for (int j = 0; j < this.props.ncols){
-                if (table[i][j].){
+        for (let i = 0; i < this.props.nrows*this.props.ncols; i++){
 
-                }
-            }
         }                                                // Player wins when all of his humans have covid
     }
 
     bombAllShipsAroundMe = () => {
-                                                        // When a cell is bombed, all humans around cells also get bombed (get covid)
+        for (let i = 0; i < this.props.nrows*this.props.ncols; i++){
+            // if (index < 100 && index >= 0){
+            //     //flipCells(index);
+            // }
+        }                                                // When a cell is bombed, all humans around cells also get bombed (get covid)
     }
 
-    // Check to see if the machine choice matches a cell where there is ship on it
-    machineMatch = () => {
-        // console.log(this.test);
-
+    FindNumOfAllShips(){
+        let count = 0;
+        for (let i = 0; i < this.props.nrows*this.props.ncols; i++){
+            if (this[`${this.state.user}-${i}`].checkState() === "square-comp-person fadeOut"){
+                count += 1;
+            }
+        }
+        return 24 - count;                                                // When a cell is bombed, all humans around cells also get bombed (get covid)
     }
+
+    // flipAroundMe(){
+
+    // }
+
     render() {
     return(
         // Shows the board and its cells
         <div>
+            {console.log(this.FindNumOfAllShips())}
             <div className="Board-margins">
                 <table className="Board">
                 <tbody>
                     {this.arr.map((item, index) => {
                             if (this.state.pos !== undefined && this.state.pos.includes(`${index}`)) {
-                                return <Cell key={index} onRef={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />;
+                                return <Cell key={index} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />;
                             } else {
                                 return <Cell key={index} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />;
                             }
