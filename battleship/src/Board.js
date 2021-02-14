@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Ship from './Ship';
 import Cell from './Cell.js';
 import EndButton from './EndButton.js'
@@ -6,6 +6,8 @@ import './Board.css';
 
 
 const Board = (props) => {
+    console.log(props.user);
+
     let board = [];
         for (let i = 0; i < props.nrows; i++){
             let row = [];

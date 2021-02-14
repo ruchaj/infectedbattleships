@@ -12,10 +12,15 @@ class Cell extends React.Component {
             hasShip: false,
             user: props.user
         };
+        console.log(props.user);
+        this.setState({user: props.user});
     }
 
+    
+
     onClick = () => {
-        if (this.state.user === 2) {
+        console.log(this.state.user);
+        if (this.state.user === true) {
             this.setState({didBombed: !this.state.didBombed});
         }
     }
@@ -25,7 +30,6 @@ class Cell extends React.Component {
             <button className={(this.state.didBombed) ? "square-b" : "square"} onClick={this.onClick}></button>
         );
     }
-
 }
 
 export default Cell;
