@@ -23,8 +23,7 @@ const Board = (props) => {
         let y = Math.floor(Math.random() * props.nrows);
         return [x,y];
     }
-    let x = machineChoice()[0];
-    let y = machineChoice()[1];
+    const [x,y] = machineChoice();
     console.log(x);
     console.log(y);
 

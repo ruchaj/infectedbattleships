@@ -1,18 +1,16 @@
-import React from 'react';
-import './DragNDrop.css';
+// import React from 'react';
+// import './DragNDrop.css';
 
 
-<<<<<<< HEAD
-export default class EndButton extends React.Component {
-    constructor() {
-        super();
-        this.state = {
-          value: 0,
-          message: 'default click state'
-        }
-      }
-    }
-=======
+// export default class EndButton extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//           value: 0,
+//           message: 'default click state'
+//         }
+//       }
+//     }
 // export default class Square extends React.Component {
 //     constructor() {
 //         super();
@@ -73,4 +71,3 @@ export default class EndButton extends React.Component {
 //       }
 //     }
     
->>>>>>> 4cab699c6842810e9265de315aaf51788cfa0deb

@@ -28,7 +28,7 @@ function App() {
   return (
     <div className="App">
       <Board nrows={10} ncols={10} user={1} canEdit={editing} isPlacing={placing} flip={flip} />
-      <Board nrows={10} ncols={10} user={2} canEdit={!editing} isPlacing={false} flip={flip} machinePos={mySet}/>
+      <Board nrows={10} ncols={10} user={2} canEdit={!editing} isPlacing={false} flip={flip} machinePos={mySet} />
       {/* <EndButton b/> */}
       {placing && editing && <button onClick={handleClick}> SET POSITION </button>}
     </div>
