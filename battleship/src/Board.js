@@ -30,7 +30,11 @@ const Board = (props) => {
     console.log(board[x][y])
 
     // Check to see if the machine choice matches a cell where there is ship on it
-        
+    const machineMatch = () => {
+        if(board[x][y] == Cell.checkState()){
+            
+        }
+    }
     return(
         <div>
             <div className="Board-margins">
