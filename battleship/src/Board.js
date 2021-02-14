@@ -8,12 +8,19 @@ import './Board.css';
 const Board = (props) => {
     console.log(props.canEdit);
 
+    // sets up the board by pushing cells into a 2d array and passing down props to the child component
     let board = [];
     for (let i = 0; i < props.nrows; i++){
         let row = [];
             for (let k = 0; k < props.ncols; k++){
                 let coord = `${i}-${k}`;
-                row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit} isPlacing={props.isPlacing} flip={props.flip} machinePos={props.machinePos} />);
+                row.push(<Cell key={coord} 
+                    user={props.user} 
+                    canEdit={props.canEdit} 
+                    isPlacing={props.isPlacing} 
+                    flip={props.flip} 
+                    machinePos={props.machinePos} 
+                    />);
             }
         board.push(<tr key={i}>{row}</tr>);
     }
@@ -36,6 +43,7 @@ const Board = (props) => {
         }
     }
     return(
+        // Shows the board and its cells
         <div>
             <div className="Board-margins">
                 <table className="Board">
