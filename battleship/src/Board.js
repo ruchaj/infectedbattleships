@@ -13,7 +13,7 @@ const Board = (props) => {
             let row = [];
                 for (let k = 0; k < props.ncols; k++){
                     let coord = `${i}-${k}`;
-                    row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit}/>);
+                    row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit} isPlacing={props.isPlacing} flip={props.flip}/>);
                 }
             board.push(<tr key={i}>{row}</tr>);
         }
