@@ -1,6 +1,6 @@
-// import React from 'react';
-// import './DragNDrop.css';
-// import ReactDOM from 'react-dom';
+ import React from 'react';
+import './DragNDrop.css';
+import ReactDOM from 'react-dom';
 
 
 // export default class Square extends React.Component {
@@ -52,4 +52,14 @@
   //  ReactDOM.render(
   //    <Square />, 
   //    document.getElementById("root")
-  //  );
+//  );
+// export default class EndButton extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//           value: 0,
+//           message: 'default click state'
+//         }
+//       }
+//     }
+    
