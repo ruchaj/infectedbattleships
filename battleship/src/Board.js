@@ -36,9 +36,18 @@ const Board = (props) => {
 
     console.log(board[x][y])
 
+    // Check to see if a player has won
+    const winCondition = () => {
+                                                        // Player wins when all of his humans have covid
+    }
+
+    const bombAllShipsAroundMe = () => {
+                                                        // When a cell is bombed, all humans around cells also get bombed (get covid)
+    }
+
     // Check to see if the machine choice matches a cell where there is ship on it
     const machineMatch = () => {
-        if(board[x][y] == Cell.checkState()){
+        // if(board[x][y] == Cell.checkState()){
             
         }
     }
