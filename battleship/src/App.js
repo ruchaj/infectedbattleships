@@ -17,15 +17,11 @@ function App() {
 
   // chooses the machine positions based on random values as an array of arrays, (array of coordinates)
   let machinePos = new Set();
-  for (let y = 0; y < 10; y++){
-    for (let x = 0; x < 10; x++){
-      if (Math.random() < 0.25){
-        machinePos.add(`${x}${y}`);
-      }
-    }
+  for (let y = 0; y < 25; y++){
+    let rand = Math.random() * 100;
+    machinePos.add(`${Math.floor(rand)}`);
   }
-  machinePos.add("00");
-  console.log(machinePos);
+  
 
   return (
     <div className="App">
