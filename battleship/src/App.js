@@ -23,7 +23,7 @@ function App() {
     console.log(editing);
 
     
-    computerMove();
+    //computerMove();
   }
 
   const setUShip = () => {
@@ -31,7 +31,7 @@ function App() {
   }
 
   const setCShip = () => {
-    setCompShip(compShips + 1);
+    setCompShips(compShips + 1);
   }
 
   const computerMove = () => {
@@ -52,10 +52,6 @@ function App() {
     let rand = Math.random() * 100;
     machinePos.add(`${Math.floor(rand)}`);
   }
-
-  // won = () => {
-    
-  // }
   
   return (
     <div className="App">
@@ -79,10 +75,10 @@ function App() {
           </tr>
           <tr>
             <td className="board">
-              <Board onRef={ref => (setBoard1(ref))} nrows={10} ncols={10} user={1} canEdit={editing} isPlacing={placing} flip={flip} setUShip={setUShip} />  
+              <Board onRef={ref => (setBoard1(ref))} nrows={10} ncols={10} user={1} canEdit={editing} isPlacing={placing} flip={flip} numShip={setUShip} />  
             </td>
             <td className="board">
-              <Board onRef={ref => (board2 = ref)} nrows={10} ncols={10} user={2} canEdit={!editing} isPlacing={false} flip={flip} setCShip={setCShip} machinePos={machinePos}/>
+              <Board onRef={ref => (board2 = ref)} nrows={10} ncols={10} user={2} canEdit={!editing} isPlacing={false} flip={flip} numShip={setCShip} machinePos={machinePos}/>
             </td>
           </tr>
           <tr>

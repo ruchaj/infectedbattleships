@@ -38,33 +38,34 @@ class Cell extends React.Component {
         this.props.flip();
     }
 
-    // getState() {
-    //     if(this.state.hasShip === true && !this.state.didBombed === true){
-    //         return false;
-    //     }
-    //     else{
-    //         return true;
-    //     }
-    // }
+    getState() {
+        if(this.state.hasShip === true && !this.state.didBombed === true){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
-    // hasShipHere(){
-    //     if(this.state.hasShip === true && !this.state.didBombed === true){
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
+    hasShipHere(){
+        if(this.state.hasShip === true && !this.state.didBombed === true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     onClick = () => {
         if (this.state.isPlacing) {                                 // setting the position of the ships
             this.setState({hasShip: true});
+            //this.props.numship();
         } else if (this.state.canEdit && !this.state.didBombed) {   // guess check for the state to change
             if (!this.state.hasShip) {                              // cell has no ship, sets bombed to true = has no ship and bombed
                 this.setState({didBombed: true})                    
             } else {                                                // cell has a ship, sets bombed to true = has ship and bombed
                 this.setState({didBombed: true, hasShip: true});
-                this.props.bombAllShipsAroundMe(this.state.id);
+                //this.props.bombAllShipsAroundMe(this.state.id);
             }
             this.props.flip();                                      // flips the turns of the players
         }
