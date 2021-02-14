@@ -62,6 +62,8 @@ class Board extends React.Component {
     return board;
 }
 
+
+
     componentDidMount() {
         console.log("mount");
         console.log(this.refs);
