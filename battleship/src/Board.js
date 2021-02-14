@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect } from 'react';
 import Ship from './Ship';
 import Cell from './Cell.js';
 import EndButton from './EndButton.js'
@@ -7,6 +7,26 @@ import './Board.css';
 
 const Board = (props) => {
     console.log(props.canEdit);
+
+    let table = [];
+    useEffect(() => {
+        for (let i = 0; i < props.nrows; i++){
+            let row = [];
+                for (let k = 0; k < props.ncols; k++){
+                    let coord = `${i}-${k}`;
+                    row.push({ key: coord,
+                        user: props.user,
+                        canEdit: props.canEdit, 
+                        isPlacing: props.isPlacing, 
+                        flip: props.flip, 
+                        machinePos: props.machinePos 
+                    });
+                }
+            board.push(<tr key={i}>{row}</tr>);
+        }
+    }, [props.flip]);
+    console.log(table);
+    
 
     // sets up the board by pushing cells into a 2d array and passing down props to the child component
     let board = [];
@@ -31,10 +51,10 @@ const Board = (props) => {
         return [x,y];
     }
     const [x,y] = machineChoice();
-    console.log(x);
-    console.log(y);
+    //console.log(x);
+    //console.log(y);
 
-    console.log(board[x][y])
+    //console.log(board[x][y])
 
     // Check to see if a player has won
     const winCondition = () => {
@@ -57,7 +77,7 @@ const Board = (props) => {
             <div className="Board-margins">
                 <table className="Board">
                     <tbody>{board}</tbody>
-                    {console.log(machineChoice())}
+                    {/* {console.log(machineChoice())} */}
                 </table>
             </div>
         </div>
