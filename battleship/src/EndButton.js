@@ -30,16 +30,16 @@ export default class Square extends React.Component {
         this.setState((prevState,props) => ({
           message: `click-state ${prevState.value}`
         }),() => {
-          console.log(`After update: ${this.state.value}`));
-        });      
-        
-      }
+            console.log(`After update: ${this.state.value}`);
+          });      
+          
+        }
       
      
       render(){
         return( 
           <div>
-            <div>render -> state={this.state.value} - 
+            <div>render -{'>'} state={this.state.value} - 
                 {this.state.message}
             </div>
             <button onClick={this.onClick}>Click-setState</button>
@@ -50,6 +50,6 @@ export default class Square extends React.Component {
    }
    
    ReactDOM.render(
-     <App />, 
+     <Square />, 
      document.getElementById("root")
    );
