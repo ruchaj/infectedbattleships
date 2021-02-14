@@ -9,12 +9,11 @@ const Board = (props) => {
     console.log(props.canEdit);
 
     let board = [];
-<<<<<<< HEAD
     for (let i = 0; i < props.nrows; i++){
         let row = [];
             for (let k = 0; k < props.ncols; k++){
                 let coord = `${i}-${k}`;
-                row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit}/>);
+                row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit} isPlacing={props.isPlacing} flip={props.flip}/>);
             }
         board.push(<tr key={i}>{row}</tr>);
     }
@@ -24,17 +23,7 @@ const Board = (props) => {
         let y = Math.floor(Math.random() * props.nrows);
         return [x,y];
     }
-=======
-        for (let i = 0; i < props.nrows; i++){
-            let row = [];
-                for (let k = 0; k < props.ncols; k++){
-                    let coord = `${i}-${k}`;
-                    row.push(<Cell key={coord} user={props.user} canEdit={props.canEdit} isPlacing={props.isPlacing} flip={props.flip}/>);
-                }
-            board.push(<tr key={i}>{row}</tr>);
-        }
->>>>>>> 4bdf238e51ed557be6609695b570bc7ab8d6e102
-
+        
     return(
         <div>
             <div className="Board-margins">
