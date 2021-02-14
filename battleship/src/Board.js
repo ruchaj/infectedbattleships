@@ -81,6 +81,7 @@ class Board extends React.Component {
     // Check to see if the machine choice matches a cell where there is ship on it
     machineMatch = () => {
         console.log(this.test);
+
     }
     render() {
     return(
