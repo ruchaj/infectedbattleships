@@ -8,8 +8,6 @@ import './Board.css';
 class Board extends React.Component {
     constructor(props){
        super(props); 
-       this.createBoard = this.createBoard.bind(this);
-       //this.checkSet = this.checkSet.bind(this);
 
        this.state = {
            pos: (this.props.machinePos !== undefined) ? Array.from(this.props.machinePos) : undefined,
@@ -22,54 +20,13 @@ class Board extends React.Component {
        }
     }  
     
-    // createBoard () {
-    // // sets up the board by pushing cells into a 2d array and passing down props to the child component
-    // let board = [];
-    
-    // console.log(this.state.pos);
-    
-    // for (let i = 0; i < this.props.nrows; i++){
-    //     let row = [];
-    //         for (let k = 0; k < this.props.ncols; k++){
-    //             let coord = `${i}-${k}`;
-    //             //this[`${this.state.user}-${coord}`] = React.createRef();
-                
-    //             if (this.state.pos !== undefined && this.state.pos.includes(`${i}${k}`)) {
-    //                 row.push(<Cell key={coord} ref={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />);
-    //             } else {
-    //                 row.push(<Cell key={coord} ref={ref => (this[`${this.state.user}-${coord}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />);
-    //             }
-                
-                
-    //             console.log(this[`${this.state.user}-${coord}`]);
-                
-    //         }
-            
-    //         //this[`1-0-0`].setShip();
-    //     board.push(<tr key={i}>{row}</tr>);
-    //     console.log("test"+this.test);
-    //     console.log(this.props.children);
-    // }
-    
-    // const machineChoice = () => {
-    //     let x = Math.floor(Math.random() * this.props.ncols);
-    //     let y = Math.floor(Math.random() * this.props.nrows);
-    //     return [x,y];
-    // }
-    // const [x,y] = machineChoice();
-    // console.log(x);
-    // console.log(y);
-    // return board;
-//}
-
-
-
     componentDidMount() {
-        console.log("mount");
-        //this.arr.map((item, index) => this[`${this.state.user}-${index}`]);
+        this.props.onRef(this);
+        console.log("this");
+    }
 
-        this[`${this.state.user}-0`].setShips();
-        
+    componentWillUnmount() {
+        this.props.onRef(undefined);
     }
 
     // Check to see if a player has won
@@ -81,11 +38,16 @@ class Board extends React.Component {
                                                         // When a cell is bombed, all humans around cells also get bombed (get covid)
     }
 
+    attack(index) {
+        this[`${this.state.user}-${index}`].attack();
+    }
+
     // Check to see if the machine choice matches a cell where there is ship on it
     machineMatch = () => {
         console.log(this.test);
 
     }
+
     render() {
     return(
         // Shows the board and its cells
@@ -94,12 +56,10 @@ class Board extends React.Component {
                 <table className="Board">
                     <tbody>{this.arr.map((item, index) => {
                             if (this.state.pos !== undefined && this.state.pos.includes(`${index}`)) {
-                                return <Cell key={index} onRef={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />;
+                                return <Cell key={index} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />;
                             } else {
                                 return <Cell key={index} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />;
                             }
-                            // let cell = <Cell key={`${this.state.user}-${index}`} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true}></Cell>;
-                            // return cell;
                         }
                         )}</tbody>
                 </table>

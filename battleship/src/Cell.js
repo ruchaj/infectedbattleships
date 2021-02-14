@@ -19,15 +19,19 @@ class Cell extends React.Component {
 
     componentDidMount() {
         this.props.onRef(this);
-        //console.log("this");
     }
 
-    // componentWillUnmount() {
-    //     this.props.onRef(undefined);
-    // }
+    componentWillUnmount() {
+        this.props.onRef(undefined);
+    }
 
     setShips() {
         console.log("setShip");
+    }
+
+    attack() {
+        this.setState({didBombed: true});
+        this.props.flip();
     }
 
     onClick = () => {
