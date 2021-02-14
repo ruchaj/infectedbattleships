@@ -7,7 +7,8 @@ class Cell extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
         this.checkState = this.checkState.bind(this);
-
+        
+        
         this.state = {
             didBombed: false,
             hasShip: this.props.machinePos,
@@ -15,10 +16,11 @@ class Cell extends React.Component {
             canEdit: props.canEdit,                             // user is guessing
             isPlacing: props.isPlacing                          // user is placing humans
         };
+        //this.props.ref(this);
     }
 
     componentDidMount() {
-        this.props.onRef(this);
+        this.props.ref(this);
         //console.log("this");
     }
 
@@ -26,7 +28,7 @@ class Cell extends React.Component {
     //     this.props.onRef(undefined);
     // }
 
-    setShips() {
+    setShips(){
         console.log("setShip");
     }
 
@@ -49,6 +51,7 @@ class Cell extends React.Component {
         }
         return true;
     }
+
 
     checkState = () => {
         if (this.state.user === 1) {                            // Left Board

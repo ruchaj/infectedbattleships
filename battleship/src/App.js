@@ -21,8 +21,8 @@ function App() {
     let rand = Math.random() * 100;
     machinePos.add(`${Math.floor(rand)}`);
   }
-  
 
+  
   return (
     <div className="App">
       <Board nrows={10} ncols={10} user={1} canEdit={editing} isPlacing={placing} flip={flip} />  

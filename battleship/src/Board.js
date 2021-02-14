@@ -11,88 +11,65 @@ class Board extends React.Component {
        this.createBoard = this.createBoard.bind(this);
        //this.checkSet = this.checkSet.bind(this);
 
-        let table = [];
-        for (let i = 0; i < props.nrows; i++){
-            let row = [];
-                for (let k = 0; k < props.ncols; k++){
-                    let coord = `${i}-${k}`;
-                    row.push({ key: coord,
-                        user: props.user,
-                        canEdit: props.canEdit, 
-                        isPlacing: props.isPlacing, 
-                        flip: props.flip, 
-                        machinePos: props.machinePos 
-                    });
-                }
-            table.push({row});
-        }
-        console.log(table);
 
        this.state = {
-           pos: (this.props.machinePos !== undefined) ? Array.from(this.props.machinePos) : undefined,
-           user: this.props.user,
-           table: table
-       }
+        pos: (this.props.machinePos !== undefined) ? Array.from(this.props.machinePos) : undefined,
+        user: this.props.user,
+        table: table
+        }
 
-       this.arr = Array(this.props.nrows*this.props.ncols).fill(1);
-       if (this.state.pos !== undefined) {
+        this.arr = Array(this.props.nrows*this.props.ncols).fill(1);
+        if (this.state.pos !== undefined) {
             console.log(this.state.pos);
-       }
-    }  
-    
-    // createBoard () {
-    // // sets up the board by pushing cells into a 2d array and passing down props to the child component
-    // let board = [];
-    
-    // console.log(this.state.pos);
-    
-    // for (let i = 0; i < this.props.nrows; i++){
-    //     let row = [];
-    //         for (let k = 0; k < this.props.ncols; k++){
-    //             let coord = `${i}-${k}`;
-    //             //this[`${this.state.user}-${coord}`] = React.createRef();
-                
-    //             if (this.state.pos !== undefined && this.state.pos.includes(`${i}${k}`)) {
-    //                 row.push(<Cell key={coord} ref={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />);
-    //             } else {
-    //                 row.push(<Cell key={coord} ref={ref => (this[`${this.state.user}-${coord}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />);
-    //             }
-                
-                
-    //             console.log(this[`${this.state.user}-${coord}`]);
-                
-    //         }
-            
-    //         //this[`1-0-0`].setShip();
-    //     board.push(<tr key={i}>{row}</tr>);
-    //     console.log("test"+this.test);
-    //     console.log(this.props.children);
-    // }
-    
-<<<<<<< HEAD
-    const machineChoice = () => {
-        let x = Math.floor(Math.random() * this.props.ncols);
-        let y = Math.floor(Math.random() * this.props.nrows);
-        return [x,y];
+        }
     }
-    const [x,y] = machineChoice();
-    //console.log(x);
-    //console.log(y);
 
-    // if(board[x][y] == Cell.checkState()){
+   
+    
+//     createBoard () {
+//     // sets up the board by pushing cells into a 2d array and passing down props to the child component
+//     let board = [];
+    
+//     console.log(this.state.pos);
+    
+//     for (let i = 0; i < this.props.nrows; i++){
+//         let row = [];
+//             for (let k = 0; k < this.props.ncols; k++){
+//                 let coord = `${i}-${k}`;
+//                 //this[`${this.state.user}-${coord}`] = React.createRef();
+                
+//                 if (this.state.pos !== undefined && this.state.pos.includes(`${i}${k}`)) {
+//                     row.push(<Cell key={coord} ref={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />);
+//                 } else {
+//                     row.push(<Cell key={coord} ref={ref => (this[`${this.state.user}-${coord}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />);
+//                 }
+                
+                
+//                 console.log(this[`${this.state.user}-${coord}`]);
+                
+//             }
             
-=======
-    // const machineChoice = () => {
-    //     let x = Math.floor(Math.random() * this.props.ncols);
-    //     let y = Math.floor(Math.random() * this.props.nrows);
-    //     return [x,y];
->>>>>>> 77d5931a0f43fe7260f216ab69cb796729d5be00
-    // }
-    // const [x,y] = machineChoice();
-    // console.log(x);
-    // console.log(y);
-    // return board;
-//}
+//             //this[`1-0-0`].setShip();
+//         board.push(<tr key={i}>{row}</tr>);
+//         console.log("test"+this.test);
+//         console.log(this.props.children);
+//     }
+    
+//     const machineChoice = () => {
+//         let x = Math.floor(Math.random() * this.props.ncols);
+//         let y = Math.floor(Math.random() * this.props.nrows);
+//         return [x,y];
+//     }
+//     const [x,y] = machineChoice();
+//     //console.log(x);
+//     //console.log(y);
+
+//     // if(board[x][y] == Cell.checkState()){
+            
+//     // }
+
+//     return board;
+// }
 
 
 
@@ -101,12 +78,17 @@ class Board extends React.Component {
         //this.arr.map((item, index) => this[`${this.state.user}-${index}`]);
 
         this[`${this.state.user}-0`].setShips();
-        
     }
 
     // Check to see if a player has won
     winCondition = () => {
-                                                        // Player wins when all of his humans have covid
+        for (int i = 0; i < this.props.nrows){
+            for (int j = 0; j < this.props.ncols){
+                if (table[i][j].){
+
+                }
+            }
+        }                                                // Player wins when all of his humans have covid
     }
 
     bombAllShipsAroundMe = () => {
@@ -115,9 +97,8 @@ class Board extends React.Component {
 
     // Check to see if the machine choice matches a cell where there is ship on it
     machineMatch = () => {
-        // if(board[x][y] == Cell.checkState()){
-            
-       // }
+        // console.log(this.test);
+
     }
     render() {
     return(
@@ -125,11 +106,8 @@ class Board extends React.Component {
         <div>
             <div className="Board-margins">
                 <table className="Board">
-<<<<<<< HEAD
-                    <tbody>{this.createBoard()}</tbody>
-                    {console.log(this.state.table)}
-=======
-                    <tbody>{this.arr.map((item, index) => {
+                <tbody>
+                    {this.arr.map((item, index) => {
                             if (this.state.pos !== undefined && this.state.pos.includes(`${index}`)) {
                                 return <Cell key={index} onRef={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />;
                             } else {
@@ -138,8 +116,8 @@ class Board extends React.Component {
                             // let cell = <Cell key={`${this.state.user}-${index}`} onRef={ref => (this[`${this.state.user}-${index}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true}></Cell>;
                             // return cell;
                         }
-                        )}</tbody>
->>>>>>> 77d5931a0f43fe7260f216ab69cb796729d5be00
+                    )}
+                </tbody>
                 </table>
             </div>
         </div>
