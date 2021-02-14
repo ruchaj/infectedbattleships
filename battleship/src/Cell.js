@@ -11,14 +11,22 @@ class Cell extends React.Component {
         this.state = {
             didBombed: false,
             hasShip: false,
-            user: props.user
+            user: props.user,
+            canEdit: props.canEdit
         };
     }
 
     onClick = () => {
-        if (this.state.user === 2) {
-            this.setState({didBombed: true});
+        if (this.state.canEdit) {
+            this.setState({hasShip: !this.state.hasShip});
         }
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (this.props !== nextProps) {
+            this.setState({canEdit: nextProps.canEdit});
+        }
+        return true;
     }
 
     checkState = () => {
@@ -26,8 +34,9 @@ class Cell extends React.Component {
         if (this.state.user === 1) {
             if(this.state.didBombed) {
                 str = "square-user-bombed";
+            } else if (this.state.hasShip){
+                str = "square-user-person";
             } else {
-                console.log(1);
                 str = "square";
             }
         } else if (this.state.user === 2) {
@@ -46,7 +55,6 @@ class Cell extends React.Component {
             <button className={this.checkState()} onClick={this.onClick}></button>
         );
     }
-
 }
 
 export default Cell;
