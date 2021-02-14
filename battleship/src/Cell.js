@@ -7,8 +7,8 @@ class Cell extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
         this.checkState = this.checkState.bind(this);
-        this.getState = this.getState.bind(this);
-        this.hasShipHere = this.hasShipHere.bind(this);
+        // this.getState = this.getState.bind(this);
+        // this.hasShipHere = this.hasShipHere.bind(this);
         
         
         this.state = {
@@ -38,23 +38,23 @@ class Cell extends React.Component {
         this.props.flip();
     }
 
-    getState() {
-        if(this.state.hasShip === true && !this.state.didBombed === true){
-            return false;
-        }
-        else{
-            return true;
-        }
-    }
+    // getState() {
+    //     if(this.state.hasShip === true && !this.state.didBombed === true){
+    //         return false;
+    //     }
+    //     else{
+    //         return true;
+    //     }
+    // }
 
-    hasShipHere(){
-        if(this.state.hasShip === true && !this.state.didBombed === true){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    // hasShipHere(){
+    //     if(this.state.hasShip === true && !this.state.didBombed === true){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
 
     onClick = () => {
         if (this.state.isPlacing) {                                 // setting the position of the ships

@@ -5,13 +5,8 @@
   justify-content: center;
   height: max-content;
   background-color: palegoldenrod;
-<<<<<<< HEAD
-  /* background-image: url("file:///Users/ruchaj/https:/github.com/claytonnguyen/hackSU-2021.git/hackSU-2021/battleship/src/img/battleCOVID.png"); */
-  background-size: 99%;
-=======
   background-image: url(./img/sea.jpg);
   background-size: cover;
->>>>>>> 3f84c051ebdf948b98fd49ea9b8a965407f428ca
 }
 
 .Title {
