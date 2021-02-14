@@ -7,6 +7,8 @@ class Cell extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
         this.checkState = this.checkState.bind(this);
+        this.getState = this.getState.bind(this);
+        this.hasShipHere = this.hasShipHere.bind(this);
         
         
         this.state = {
@@ -36,6 +38,24 @@ class Cell extends React.Component {
         this.props.flip();
     }
 
+    getState() {
+        if(this.state.hasShip === true && !this.state.didBombed === true){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    hasShipHere(){
+        if(this.state.hasShip === true && !this.state.didBombed === true){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
     onClick = () => {
         if (this.state.isPlacing) {                                 // setting the position of the ships
             this.setState({hasShip: true});
@@ -44,7 +64,7 @@ class Cell extends React.Component {
                 this.setState({didBombed: true})                    
             } else {                                                // cell has a ship, sets bombed to true = has ship and bombed
                 this.setState({didBombed: true, hasShip: true});
-                this.props.flipAroundMe(this.props.key);
+                this.props.bombAllShipsAroundMe(this.state.id);
             }
             this.props.flip();                                      // flips the turns of the players
         }
