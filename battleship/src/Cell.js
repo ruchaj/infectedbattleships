@@ -40,9 +40,9 @@ class Cell extends React.Component {
     checkState = () => {
         if (this.state.user === 1) {
             if(this.state.didBombed && this.state.hasShip) {
-                return "square-comp-person";
+                return "square-comp-person fadeIn";
             } else if (this.state.didBombed){
-                return "square-user-bombed";
+                return "square-user-bombed fadeIn";
             } else if (this.state.hasShip){
                 return "square-user-person";
             } else {
@@ -50,9 +50,9 @@ class Cell extends React.Component {
             }
         } else if (this.state.user === 2) {
             if (this.state.didBombed && this.state.hasShip) {
-                return "square-comp-person fadeIn";
+                return "square-comp-person fadeOut";
             } else if (this.state.didBombed) {
-                return "square-comp-bombed fadeIn";
+                return "square-comp-bombed fadeOut";
             } else {
                 return "square";
             }
