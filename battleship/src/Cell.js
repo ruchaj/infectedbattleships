@@ -21,13 +21,6 @@ class Cell extends React.Component {
             <button className={(this.state.didBombed) ? "square-b" : "square"} onClick={this.onClick}></button>
         );
     }
-
-<<<<<<< HEAD
-    return (
-        <td className={classes} onClick={handleClick}></td>
-    )
-=======
->>>>>>> ce28d8e26f499cf023c121d5897f881945a0b311
 }
 
 export default Cell;

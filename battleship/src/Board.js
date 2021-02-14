@@ -13,7 +13,7 @@ const Board = (props) => {
         let row = [];
             for (let k = 0; k < props.ncols; k++){
                 let coord = `${i}-${k}`;
-                row.push(<Cell key={coord} locked={props.placing} />);
+                row.push(<Cell key={coord} />);
             }
         board.push(<tr key={i}>{row}</tr>);
     }
@@ -24,7 +24,7 @@ const Board = (props) => {
                 <table className="Board">
                     <tbody>{board}</tbody>
                 </table>
-                <button onClick={props.setPlacing(false)}></button>
+                {/* <button onClick={}></button> */}
             </div>
         </div>
     );

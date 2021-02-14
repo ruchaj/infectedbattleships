@@ -4,16 +4,13 @@
     border-radius: 1px;
     background: url(covid1.jfif);
     /* background-color: blue; */
-  }
+  
 
-  .Cell-lit {
-<<<<<<< HEAD
-    background: url(bottle.png);
-    /* background-color: black; */
-  }
-=======
+  /* .Cell-lit {
     background-color: black;
-  } */
+  }  */ 
+  
+  
 
 .square {
   width: 50px;
@@ -42,4 +39,3 @@
   border: none;
   outline: none;
 }
->>>>>>> ce28d8e26f499cf023c121d5897f881945a0b311

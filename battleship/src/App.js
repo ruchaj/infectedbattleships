@@ -8,15 +8,9 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
-      <Board nrows={10} ncols={10} locked={setPlacing} />
-      <Board nrows={10} ncols={10} locked={!placing} />
-
-=======
       <Board nrows={10} ncols={10} />
       <Board nrows={10} ncols={10} />
       <EndButton b/>
->>>>>>> ce28d8e26f499cf023c121d5897f881945a0b311
     </div>
   );
 }
