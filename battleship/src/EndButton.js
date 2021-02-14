@@ -1,67 +1,55 @@
-import React from 'react';
-import './DragNDrop.css';
-import ReactDOM from 'react-dom';
+// import React from 'react';
+// import './DragNDrop.css';
+// import ReactDOM from 'react-dom';
 
 
-export default class Square extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        value: null,
-      };
-    }
-  
-    render() {
-      return (
-        <button
-          className="square"
-          onClick={() => this.setState({value: 'X'})}
-        >
-          {this.state.value}
-        </button>
-      );
-    }
-  }
-  
-  class Board extends React.Component {
-    renderSquare(i) {
-      return <Square />;
-    }
-  
-    render() {
-      const status = 'Stop?';
-  
-      return (
-        <div>
-          <div className="status">{status}</div>
-          <div className="board-row">
-            {this.renderSquare(0)}
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  class Game extends React.Component {
-    render() {
-      return (
-        <div className="game">
-          <div className="game-board">
-            <Board />
-          </div>
-          <div className="game-info">
-            <div>{/* status */}</div>
-            <ol>{/* TODO */}</ol>
-          </div>
-        </div>
-      );
-    }
-  }
-  
-  // ========================================
-  
-  ReactDOM.render(
-    <Game />,
-    document.getElementById('root')
-  );
-  
+// export default class Square extends React.Component {
+//     constructor() {
+//         super();
+//         this.state = {
+//           value: 0,
+//           message: 'default click state'
+//         }
+//       }
+     
+//       onClick = () => {
+//         this.setState({
+//           value: this.state.value + 1
+//         });
+        
+//         this.setState({
+//           message: `click-state ${this.state.value}`
+//         });
+//       }
+      
+//        onClickfn = () => {
+//         this.setState((prevState,props) => ({
+//           value: prevState.value + 1
+//         }));
+        
+//         this.setState((prevState,props) => ({
+//           message: `click-state ${prevState.value}`
+//         }),() => {
+//           console.log(`After update: ${this.state.value}`);
+//         });      
+        
+//       }
+      
+     
+//       render(){
+//         return( 
+//           <div>
+//             <div>render => state={this.state.value} - 
+//                 {this.state.message}
+//             </div>
+//             <button onClick={this.onClick}>Click-setState</button>
+//             <button onClick={this.onClickfn}>Click-setState fn</button>
+//           </div>
+//         );
+//       }
+//    }
+   
+//   //  ReactDOM.render(
+//   //    <App />, 
+//   //    document.getElementById("root")
+//   //  );

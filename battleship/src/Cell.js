@@ -6,14 +6,23 @@ class Cell extends React.Component {
     constructor(props) {
         super(props);
         this.onClick = this.onClick.bind(this);
+        
         this.state = {
             didBombed: false,
-            hasShip: false
+            hasShip: false,
+            user: props.user
         };
+        console.log(props.user);
+        this.setState({user: props.user});
     }
 
+    
+
     onClick = () => {
-        this.setState({didBombed: !this.state.didBombed});
+        console.log(this.state.user);
+        if (this.state.user === true) {
+            this.setState({didBombed: !this.state.didBombed});
+        }
     }
 
     render() {
