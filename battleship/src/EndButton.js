@@ -3,7 +3,7 @@ import './DragNDrop.css';
 import ReactDOM from 'react-dom';
 
 
-export default class Square extends React.Component {
+export default class EndButton extends React.Component {
     constructor() {
         super();
         this.state = {
@@ -43,13 +43,12 @@ export default class Square extends React.Component {
                 {this.state.message}
             </div>
             <button onClick={this.onClick}>Click-setState</button>
-            <button onClick={this.onClickfn}>Click-setState fn</button>
           </div>
         );
       }
    }
    
    ReactDOM.render(
-     <Square />, 
+     <EndButton />, 
      document.getElementById("root")
    );
