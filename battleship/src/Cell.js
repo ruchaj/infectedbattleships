@@ -17,6 +17,14 @@ class Cell extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.onRef(this);
+    }
+
+    componentWillUnmount() {
+        this.props.onRef(undefined);
+    }
+
     onClick = () => {
         if (this.state.isPlacing) {
             this.setState({hasShip: true});
