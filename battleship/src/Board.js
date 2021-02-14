@@ -16,18 +16,9 @@ class Board extends React.Component {
            user: this.props.user
        }
     }  
-
-    // checkSet(i,k){
-    //     if (this.state.pos !== undefined) {
-    //         for (let item of this.state.pos) {
-    //             if (item.toString() === [i,k].toString()) {
-    //                 return true;
-    //             }
-    //         }
-    //     }
-    // }
-
+    
     createBoard () {
+    // sets up the board by pushing cells into a 2d array and passing down props to the child component
     let board = [];
     
     console.log(this.state.pos);
@@ -54,6 +45,15 @@ class Board extends React.Component {
         console.log("test"+this.test);
         console.log(this.props.children);
     }
+    
+    const machineChoice = () => {
+        let x = Math.floor(Math.random() * this.props.ncols);
+        let y = Math.floor(Math.random() * this.props.nrows);
+        return [x,y];
+    }
+    const [x,y] = machineChoice();
+    console.log(x);
+    console.log(y);
 
     // if(board[x][y] == Cell.checkState()){
             
@@ -62,25 +62,19 @@ class Board extends React.Component {
     return board;
 }
 
-componentDidMount() {
-    console.log("mount");
-    console.log(this.refs);
-}
-    // const machineChoice = () => {
-    //     let x = Math.floor(Math.random() * props.ncols);
-    //     let y = Math.floor(Math.random() * props.nrows);
-    //     let row = board[x];
-        
-    //     console.log(row);
-    //     console.log(row[y]);
-    //     return [x,y];
-    // }
-    // let x = machineChoice()[0];
-    // let y = machineChoice()[1];
-    // console.log(x);
-    // console.log(y);
+    componentDidMount() {
+        console.log("mount");
+        console.log(this.refs);
+    }
 
-    // console.log(board[x][y])
+    // Check to see if a player has won
+    winCondition = () => {
+                                                        // Player wins when all of his humans have covid
+    }
+
+    bombAllShipsAroundMe = () => {
+                                                        // When a cell is bombed, all humans around cells also get bombed (get covid)
+    }
 
     // Check to see if the machine choice matches a cell where there is ship on it
     machineMatch = () => {
@@ -88,6 +82,7 @@ componentDidMount() {
     }
     render() {
     return(
+        // Shows the board and its cells
         <div>
             <div className="Board-margins">
                 <table className="Board">
