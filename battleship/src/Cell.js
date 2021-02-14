@@ -18,7 +18,7 @@ class Cell extends React.Component {
 
     onClick = () => {
         if (this.state.canEdit) {
-            this.setState({hasShip: !this.state.hasShip});
+            this.setState({didBombed: true});
         }
     }
 
