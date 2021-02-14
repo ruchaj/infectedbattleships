@@ -1,18 +1,27 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import './Cell.css'
 
-export const Cell = (props) => {
-    const [isLit, setIsLit] = useState(false);
+class Cell extends React.Component {
 
-    const handleClick = (evt) => {
-        setIsLit(!isLit);
+    constructor(props) {
+        super(props);
+        this.onClick = this.onClick.bind(this);
+        this.state = {
+            didBombed: false,
+            hasShip: false
+        };
     }
 
-    let classes = "Cell" + (isLit ? " Cell-lit" : "");
+    onClick = () => {
+        this.setState({didBombed: !this.state.didBombed});
+    }
 
-    return (
-        <td className={classes} onClick={handleClick} />
-    )
+    render() {
+        return(
+            <button className={(this.state.didBombed) ? "square-b" : "square"} onClick={this.onClick}></button>
+        );
+    }
+
 }
 
 export default Cell;
