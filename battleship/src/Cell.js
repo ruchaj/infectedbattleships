@@ -1,40 +1,24 @@
 import React from 'react'
 import './Cell.css'
 
-class Cell extends React.Component {
+function Cell(props) {
 
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-        this.checkState = this.checkState.bind(this);
-
-        this.state = {
-            didBombed: false,
-            hasShip: this.props.machinePos,
-            user: props.user,
-            canEdit: props.canEdit,                             // user is guessing
-            isPlacing: props.isPlacing                          // user is placing humans
-        };
-    }
-
-    componentDidMount() {
+    const componentDidMount() =>
         this.props.onRef(this);
-    }
 
-    componentWillUnmount() {
+    const componentWillUnmount() =>
         this.props.onRef(undefined);
-    }
 
-    setShips() {
+    const setShips() {
         console.log("setShip");
     }
 
-    attack() {
+    const attack() {
         this.setState({didBombed: true});
         this.props.flip();
     }
 
-    onClick = () => {
+    const onClick = () => {
         if (this.state.isPlacing) {                                 // setting the position of the ships
             this.setState({hasShip: true});
         } else if (this.state.canEdit && !this.state.didBombed) {   // guess check for the state to change
@@ -47,14 +31,14 @@ class Cell extends React.Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {                   // updates the state from the next props
+    const shouldComponentUpdate(nextProps, nextState) {                   // updates the state from the next props
         if (this.props !== nextProps) {
             this.setState({canEdit: nextProps.canEdit, isPlacing: nextProps.isPlacing});
         }
         return true;
     }
 
-    checkState = () => {
+    const checkState = () => {
         if (this.state.user === 1) {                            // Left Board
             if(this.state.didBombed && this.state.hasShip) {    // Left Board and has a human and covid
                 return "square-comp-person fadeIn";
@@ -76,12 +60,9 @@ class Cell extends React.Component {
         }
     }
 
-    render() {
-        // Check State = Displays what is on the cell, on click will change the state of the cell if allowed
-        return(
-            <button className={this.checkState()} onClick={this.onClick}></button>
-        );
-    }
+    return( /* Check State = Displays what is on the cell, on click will change the state of the cell if allowed*/ (
+        <button className={this.checkState()} onClick={this.onClick}></button>
+    ))
 }
 
 export default Cell;
