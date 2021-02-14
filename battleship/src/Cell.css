@@ -41,7 +41,7 @@
   background: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);
   border: black;
   border-radius: 1px;
-  -webkit-animation-duration: 5s;
+  -webkit-animation: 5s;
   animation-duration: 5s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
@@ -102,6 +102,44 @@
 @keyframes fadeIn {
   0% {opacity: 0;}
   100% {opacity: 1;}
+}
+
+@-webkit-keyframes changeBg
+{
+  0%   {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+  40%  {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+  100% {background-image: url(./img/icons8-tall_person.png);}
+}
+
+@keyframes changeBg
+{
+   0%   {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+   40%  {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+   100% {background-image: url(./img/icons8-tall_person.png);}
+}
+
+@-webkit-keyframes changeBg1
+{
+  100%   {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+  60%  {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+  0% {background-image: url(./img/icons8-tall_person.png);}
+}
+
+@keyframes changeBg1
+{
+   100%   {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+   60%  {background-image: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);}
+   0% {background-image: url(./img/icons8-tall_person.png);}
+}
+
+.changeBg {
+  -webkit-animation-name: changeBg;
+  animation-name: changeBg;
+}
+
+.changeBg1 {
+  -webkit-animation-name: changeBg1;
+  animation-name: changeBg1;
 }
 
 .fadeIn {
