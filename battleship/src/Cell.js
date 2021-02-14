@@ -1,57 +1,43 @@
 import React from 'react'
 import './Cell.css'
 
-class Cell extends React.Component {
+function Cell(props) {
 
-    constructor(props) {
-        super(props);
-        this.onClick = this.onClick.bind(this);
-        this.checkState = this.checkState.bind(this);
-        
-        this.state = {
-            didBombed: false,
-            hasShip: false,
-            user: props.user,
-            canEdit: props.canEdit,
-            isPlacing: props.isPlacing
-        };
-    }
-
-    onClick = () => {
-        if (this.state.isPlacing) {
-            this.setState({hasShip: true});
-        } else if (this.state.canEdit && !this.state.didBombed) {
-            if (!this.state.hasShip) {
-                this.setState({didBombed: true})
+    const onClick = () => {
+        if (isPlacing) {
+            setState({hasShip: true});
+        } else if (canEdit && !didBombed) {
+            if (!hasShip) {
+                setState({didBombed: true})
             } else {
-                this.setState({didBombed: true, hasShip: true});
+                setState({didBombed: true, hasShip: true});
             }
-            this.props.flip();
+            props.flip();
         }
-    }
+    };
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (this.props !== nextProps) {
-            this.setState({canEdit: nextProps.canEdit, isPlacing: nextProps.isPlacing});
+    const shouldComponentUpdate = (nextProps, nextState) => {
+        if (props !== nextProps) {
+            setState({canEdit: nextProps.canEdit, isPlacing: nextProps.isPlacing});
         }
         return true;
-    }
+    };
 
-    checkState = () => {
-        if (this.state.user === 1) {
-            if(this.state.didBombed && this.state.hasShip) {
+    const checkState = () => {
+        if (user === 1) {
+            if(didBombed && hasShip) {
                 return "square-comp-person";
-            } else if (this.state.didBombed){
+            } else if (didBombed){
                 return "square-user-bombed";
-            } else if (this.state.hasShip){
+            } else if (hasShip){
                 return "square-user-person";
             } else {
                 return "square";
             }
-        } else if (this.state.user === 2) {
-            if (this.state.didBombed && this.state.hasShip) {
+        } else if (user === 2) {
+            if (didBombed && hasShip) {
                 return "square-comp-person fadeIn";
-            } else if (this.state.didBombed) {
+            } else if (didBombed) {
                 return "square-comp-bombed fadeIn";
             } else {
                 return "square";
@@ -59,11 +45,9 @@ class Cell extends React.Component {
         }
     }
 
-    render() {
         return(
             <button className={this.checkState()} onClick={this.onClick}></button>
         );
-    }
 }
 
 export default Cell;
