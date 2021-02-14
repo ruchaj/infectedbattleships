@@ -1,16 +1,3 @@
-/* .Cell {
-    height: 50px;
-    width: 50px;
-    border-radius: 1px;
-    background: url(covid1.jfif);
-    /* background-color: blue; */
-  
-
-  /* .Cell-lit {
-    background-color: black;
-  }  */ 
-  
-  
 
 .square {
   width: 50px;
@@ -39,7 +26,7 @@
   height: 50px;
   color: black;
   background: url(./img/icons8-coronavirus.png);
-  border: blue;
+  border: green;
   border-radius: 1px;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
@@ -52,7 +39,7 @@
   height: 50px;
   color: black;
   background: url(./img/icons8-coronavirus.png), url(./img/icons8-tall_person.png);
-  border: blue;
+  border: black;
   border-radius: 1px;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
@@ -65,7 +52,7 @@
   height: 50px;
   color: black;
   background: url(./img/icons8-coronavirus.png);
-  border: blue;
+  border: green;
   border-radius: 1px;
   -webkit-animation-duration: 5s;
   animation-duration: 5s;
