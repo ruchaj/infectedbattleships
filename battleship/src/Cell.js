@@ -16,15 +16,6 @@ class Cell extends React.Component {
         };
     }
 
-<<<<<<< HEAD
-    componentDidUpdate(){
-        // this.setState({user:props.user});
-        console.log(this.state.user);
-    }
-    
-
-=======
->>>>>>> 11748300e90f916f75d0bd29407baaa9d8b85b90
     onClick = () => {
         if (this.state.canEdit) {
             this.setState({hasShip: !this.state.hasShip});
