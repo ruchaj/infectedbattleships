@@ -17,10 +17,6 @@ const Board = (props) => {
 
     return(
         <div>
-            <Ship size="small"/>
-            <Ship size="medium"/>
-            <Ship size="large"/>
-            
             <div className="Board-margins">
                 <table className="Board">
                     <tbody>{board}</tbody>
