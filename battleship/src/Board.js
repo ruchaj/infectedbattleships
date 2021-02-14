@@ -49,11 +49,7 @@ const Board = (props) => {
     const machineMatch = () => {
         // if(board[x][y] == Cell.checkState()){
             
-<<<<<<< HEAD
        // }
-=======
-        // }
->>>>>>> 33d0f31b8730ca7a288a7bab4410a1d5eddb0eb8
     }
     return(
         // Shows the board and its cells
