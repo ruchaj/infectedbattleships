@@ -1,6 +1,7 @@
 import React from 'react';
 import Ship from './Ship';
 import Cell from './Cell.js';
+import EndButton from './EndButton.js'
 import './Board.css';
 
 
