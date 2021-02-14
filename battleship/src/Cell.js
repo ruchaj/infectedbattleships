@@ -16,6 +16,10 @@ class Cell extends React.Component {
         this.setState({user: props.user});
     }
 
+    componentDidUpdate(){
+        // this.setState({user:props.user});
+        console.log(this.state.user);
+    }
     
 
     onClick = () => {

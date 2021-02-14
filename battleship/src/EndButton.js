@@ -27,58 +27,29 @@
 //           value: prevState.value + 1
 //         }));
         
-<<<<<<< HEAD
-//         this.setState((prevState,props) => ({
-//           message: `click-state ${prevState.value}`
-//         }),() => {
-//           console.log(`After update: ${this.state.value}`);
-//         });      
-        
-//       }
-      
-     
-//       render(){
-//         return( 
-//           <div>
-//             <div>render => state={this.state.value} - 
-//                 {this.state.message}
-//             </div>
-//             <button onClick={this.onClick}>Click-setState</button>
-//             <button onClick={this.onClickfn}>Click-setState fn</button>
-//           </div>
-//         );
-//       }
-//    }
-   
-//   //  ReactDOM.render(
-//   //    <App />, 
-//   //    document.getElementById("root")
-//   //  );
-=======
-        this.setState((prevState,props) => ({
-          message: `click-state ${prevState.value}`
-        }),() => {
-            console.log(`After update: ${this.state.value}`);
-          });      
+  //       this.setState((prevState,props) => ({
+  //         message: `click-state ${prevState.value}`
+  //       }),() => {
+  //           console.log(`After update: ${this.state.value}`);
+  //         });      
           
-        }
+  //       }
       
      
-      render(){
-        return( 
-          <div>
-            <div>render -{'>'} state={this.state.value} - 
-                {this.state.message}
-            </div>
-            <button onClick={this.onClick}>Click-setState</button>
-            <button onClick={this.onClickfn}>Click-setState fn</button>
-          </div>
-        );
-      }
-   }
+  //     render(){
+  //       return( 
+  //         <div>
+  //           <div>render -{'>'} state={this.state.value} - 
+  //               {this.state.message}
+  //           </div>
+  //           <button onClick={this.onClick}>Click-setState</button>
+  //           <button onClick={this.onClickfn}>Click-setState fn</button>
+  //         </div>
+  //       );
+  //     }
+  //  }
    
-   ReactDOM.render(
-     <Square />, 
-     document.getElementById("root")
-   );
->>>>>>> 2dd2437afa1eb2ed32dc4d5d88d0250289733147
+  //  ReactDOM.render(
+  //    <Square />, 
+  //    document.getElementById("root")
+  //  );
