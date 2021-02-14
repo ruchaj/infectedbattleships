@@ -9,25 +9,62 @@ class Board extends React.Component {
     constructor(props){
        super(props); 
        this.createBoard = this.createBoard.bind(this);
-    }  
-    createBoard () {
+       //this.checkSet = this.checkSet.bind(this);
 
+       this.state = {
+           pos: (this.props.machinePos !== undefined) ? Array.from(this.props.machinePos) : undefined,
+           user: this.props.user
+       }
+    }  
+
+    // checkSet(i,k){
+    //     if (this.state.pos !== undefined) {
+    //         for (let item of this.state.pos) {
+    //             if (item.toString() === [i,k].toString()) {
+    //                 return true;
+    //             }
+    //         }
+    //     }
+    // }
+
+    createBoard () {
     let board = [];
+    
+    console.log(this.state.pos);
+    
     for (let i = 0; i < this.props.nrows; i++){
         let row = [];
             for (let k = 0; k < this.props.ncols; k++){
                 let coord = `${i}-${k}`;
+                //this[`${this.state.user}-${coord}`] = React.createRef();
+                
+                if (this.state.pos !== undefined && this.state.pos.includes(`${i}${k}`)) {
+                    row.push(<Cell key={coord} ref={ref => (this.test = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={true} />);
+                } else {
+                    row.push(<Cell key={coord} ref={ref => (this[`${this.state.user}-${coord}`] = ref)} user={this.state.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={false} />);
+                }
                 
                 
-                row.push(<Cell key={coord} onRef={ref => (console.log(ref))} user={this.props.user} canEdit={this.props.canEdit} isPlacing={this.props.isPlacing} flip={this.props.flip} machinePos={this.props.machinePos} />);
-                console.log(this[`child${coord}`]);
+                console.log(this[`${this.state.user}-${coord}`]);
+                
             }
             
-            this[`child0-0`].setShip();
+            //this[`1-0-0`].setShip();
         board.push(<tr key={i}>{row}</tr>);
+        console.log("test"+this.test);
+        console.log(this.props.children);
     }
 
+    // if(board[x][y] == Cell.checkState()){
+            
+    // }
+
     return board;
+}
+
+componentDidMount() {
+    console.log("mount");
+    console.log(this.refs);
 }
     // const machineChoice = () => {
     //     let x = Math.floor(Math.random() * props.ncols);
@@ -46,13 +83,15 @@ class Board extends React.Component {
     // console.log(board[x][y])
 
     // Check to see if the machine choice matches a cell where there is ship on it
-    render() {    
+    machineMatch = () => {
+        console.log(this.test);
+    }
+    render() {
     return(
         <div>
             <div className="Board-margins">
                 <table className="Board">
                     <tbody>{this.createBoard()}</tbody>
-                    {/* {console.log(machineChoice())} */}
                 </table>
             </div>
         </div>

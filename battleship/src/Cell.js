@@ -10,15 +10,17 @@ class Cell extends React.Component {
         
         this.state = {
             didBombed: false,
-            hasShip: false,
+            hasShip: this.props.machinePos,
             user: props.user,
             canEdit: props.canEdit,
             isPlacing: props.isPlacing
         };
+        //this.props.ref(this);
     }
 
     componentDidMount() {
-        this.props.onRef("this");
+        //this.props.ref(this);
+        //console.log("this");
     }
 
     // componentWillUnmount() {
