@@ -2,9 +2,11 @@
     height: 50px;
     width: 50px;
     border-radius: 1px;
-    background-color: blue;
+    background: url(covid1.jfif);
+    /* background-color: blue; */
   }
 
   .Cell-lit {
-    background-color: black;
+    background: url(bottle.png);
+    /* background-color: black; */
   }

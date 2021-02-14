@@ -11,7 +11,7 @@ export const Cell = (props) => {
     let classes = "Cell" + (isLit ? " Cell-lit" : "");
 
     return (
-        <td className={classes} onClick={handleClick} />
+        <td className={classes} onClick={handleClick}></td>
     )
 }
 
