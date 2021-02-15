@@ -7,16 +7,13 @@ class Cell extends React.Component {
         super(props);
         this.onClick = this.onClick.bind(this);
         this.checkState = this.checkState.bind(this);
-        // this.getState = this.getState.bind(this);
-        // this.hasShipHere = this.hasShipHere.bind(this);
-        
         
         this.state = {
             didBombed: false,
-            hasShip: this.props.machinePos,
+            hasShip: false,
             user: props.user,
-            canEdit: props.canEdit,                             // user is guessing
-            isPlacing: props.isPlacing                          // user is placing humans
+            canEdit: props.canEdit,
+            isPlacing: props.isPlacing
         };
         //this.props.ref(this);
     }
@@ -57,7 +54,7 @@ class Cell extends React.Component {
     }
 
     onClick = () => {
-        if (this.state.isPlacing) {                                 // setting the position of the ships
+        if (this.state.isPlacing) {
             this.setState({hasShip: true});
             //this.props.numship();
         } else if (this.state.canEdit && !this.state.didBombed) {   // guess check for the state to change
@@ -67,42 +64,40 @@ class Cell extends React.Component {
                 this.setState({didBombed: true, hasShip: true});
                 //this.props.bombAllShipsAroundMe(this.state.id);
             }
-            this.props.flip();                                      // flips the turns of the players
+            this.props.flip();
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState) {                   // updates the state from the next props
+    shouldComponentUpdate(nextProps, nextState) {
         if (this.props !== nextProps) {
             this.setState({canEdit: nextProps.canEdit, isPlacing: nextProps.isPlacing});
         }
         return true;
     }
 
-
-    checkState(){
-        if (this.state.user === 1) {                            // Left Board
-            if(this.state.didBombed && this.state.hasShip) {    // Left Board and has a human and covid
-                return "square-comp-person changeBg1";
-            } else if (this.state.didBombed){                   // Left Board and has a covid molecule
-                return "square-user-bombed fadeIn";
-            } else if (this.state.hasShip){                     // Left Board and has a human
+    checkState = () => {
+        if (this.state.user === 1) {
+            if(this.state.didBombed && this.state.hasShip) {
+                return "square-comp-person";
+            } else if (this.state.didBombed){
+                return "square-user-bombed";
+            } else if (this.state.hasShip){
                 return "square-user-person";
             } else {
-                return "square";                                // Left Board, nothing on this square
+                return "square";
             }
-        } else if (this.state.user === 2) {                     // Right Board
-            if (this.state.didBombed && this.state.hasShip) {   // Right Board and has human and covid
-                return "square-comp-person changeBg";
-            } else if (this.state.didBombed) {                  // Right Board and has a covid molecule that fades
-                return "square-comp-bombed fadeOut";
-            } else {                                            // Right Board, nothing on this square
+        } else if (this.state.user === 2) {
+            if (this.state.didBombed && this.state.hasShip) {
+                return "square-comp-person fadeIn";
+            } else if (this.state.didBombed) {
+                return "square-comp-bombed fadeIn";
+            } else {
                 return "square";
             }
         }
     }
 
     render() {
-        // Check State = Displays what is on the cell, on click will change the state of the cell if allowed
         return(
             <button className={this.checkState()} onClick={this.onClick}></button>
         );
